@@ -9,11 +9,11 @@ const CheckoutComponent = () => {
     return (
         <div className="checkout-container">
             <div className="checkout-header">
-                <div className="checkout-block"> Product </div>
-                <div className="checkout-block"> Description </div>
-                <div className="checkout-block"> Quantity </div>
-                <div className="checkout-block"> Price </div>
-                <div className="checkout-block"> Remove </div>
+                <span  className="checkout-block"> Product </span>
+                <span  className="checkout-block"> Description </span>
+                <span  className="checkout-block"> Quantity </span>
+                <span  className="checkout-block"> Price </span>
+                <span  className="checkout-block"> Remove </span>
             </div>
             {
                 cartItems.map((cartItem) => <CheckoutItemComponent key={cartItem.id} cartItem={cartItem}/>)

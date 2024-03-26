@@ -17,14 +17,14 @@ const CheckoutItemComponent = ({cartItem}) => {
             <div className="image-container">
                 <img src={imageUrl} alt={`${name}`}/>
             </div>
-            <div className="name">{name}</div>
-            <div className="quantity">
-                <span className="arrow" onClick={removeItemFromCartHandler}>&lt;</span>
+            <span className="name">{name}</span>
+            <span className="quantity">
+                <span className="arrow" onClick={removeItemFromCartHandler}>&#60;</span>
                 <span className="value">{quantity}</span>
-                <span className="arrow" onClick={addItemToCartHandler}>&gt;</span>
-            </div>
-            <div className="price">{price}</div>
-            <div className="remove-button" onClick={clearItemFromCartHandler}>&times;</div>
+                <span className="arrow" onClick={addItemToCartHandler}>&#62;</span>
+            </span>
+            <span className="price">{price}</span>
+            <div className="remove-button" onClick={clearItemFromCartHandler}>&#10005;</div>
         </div>
     );
 };
