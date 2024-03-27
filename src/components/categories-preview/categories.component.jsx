@@ -10,7 +10,7 @@ const CategoriesComponent = ({title, products}) => {
         <div className="category-preview-container">
            <h2 className="title">
                <Link to={`/shop/${title.toLowerCase()}`}>
-                   {title}
+                   {title.toUpperCase()}
                </Link>
            </h2>
             <div className="preview">
