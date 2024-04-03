@@ -16,6 +16,7 @@ const CheckoutItemComponent = ({cartItem}) => {
     const {removeItemFromCart, addItemToCart, clearItemFromCart} = useContext(CartContext);
 
     const addItemToCartHandler = () => addItemToCart(cartItem);
+
     const removeItemFromCartHandler = () => removeItemFromCart(cartItem);
 
     const clearItemFromCartHandler = () => clearItemFromCart(cartItem);
