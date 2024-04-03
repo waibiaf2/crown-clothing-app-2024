@@ -5,10 +5,12 @@ import {CategoriesContext} from "../../contexts/categories.context";
 import {useParams} from "react-router-dom";
 import ProductCard from "../product-card/product-card.component";
 import {CategoryContainer,Title} from "./category.component.styles";
+import {useSelector} from "react-redux";
+import {selectCategoriesMap} from "../../store/category/category.selector";
 
 const CategoryComponent = () => {
     const {category} = useParams();
-    const {categoriesMap} = useContext(CategoriesContext);
+    const categoriesMap = useSelector(selectCategoriesMap);
 
     const [products, setProducts] = useState([])
 
