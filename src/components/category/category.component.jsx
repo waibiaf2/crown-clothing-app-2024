@@ -1,10 +1,9 @@
 import './category.component.styles';
 
-import React, {useContext, useEffect, useState} from 'react';
-import {CategoriesContext} from "../../contexts/categories.context";
+import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import ProductCard from "../product-card/product-card.component";
-import {CategoryContainer,Title} from "./category.component.styles";
+import {CategoryContainer, Title} from "./category.component.styles";
 import {useSelector} from "react-redux";
 import {selectCategoriesMap} from "../../store/category/category.selector";
 
