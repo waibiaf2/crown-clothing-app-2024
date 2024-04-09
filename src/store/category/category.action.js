@@ -1,23 +1,19 @@
 import {createAction} from "../../utils/reducer/reducer.utils";
-import {CATEGORY_TYPES} from "./category.types";
 import {getCategoriesAndDocuments} from "../../utils/firebase/firebase.utils";
+import {CATEGORY_TYPES} from "./category.types";
 
-/*
-export const setCategories = (categoriesArray) => createAction(CATEGORY_TYPES.SET_CATEGORIES, categoriesArray);
-*/
+export const fetchCategoriesStart = () => createAction(CATEGORY_TYPES.FETCH_CATEGORIES_START);
 
-const fetchCategoriesStarted = () => createAction("FETCH_CATEGORIES_STARTED");
+export const fetchCategoriesSuccess = (categoriesArray) => createAction(CATEGORY_TYPES.FETCH_CATEGORIES_SUCCESS, categoriesArray);
 
-const fetchCategoriesSuccess = (categoriesArray) => createAction("FETCH_CATEGORIES_SUCCESS", categoriesArray);
+export const fetchCategoriesFailed = (error) => createAction(CATEGORY_TYPES.FETCH_CATEGORIES_FAILED, error);
 
-const fetchCategoriesFailed = (error) => createAction("FETCH_CATEGORIES_FAILED", error);
-
-export const fetchCategoriesAsync = () => async (dispatch) =>{
-    dispatch(fetchCategoriesStarted());
+export const fetchCategoriesAsync = () => async (dispatch) => {
+    dispatch(fetchCategoriesStart());
     try {
         const categoriesArray = await getCategoriesAndDocuments();
         dispatch(fetchCategoriesSuccess(categoriesArray));
-    }catch(error){
+    } catch (error) {
         dispatch(fetchCategoriesFailed(error));
     }
 }
