@@ -21,7 +21,7 @@ export const FormInputLabel = styled.label`
     ${({shrink}) => `${shrinkLabelStyles}`}
 `;
 
-export const FormInput = styled.input`
+export const Input = styled.input`
     background: none;
     background-color: white;
     color: ${subColor};

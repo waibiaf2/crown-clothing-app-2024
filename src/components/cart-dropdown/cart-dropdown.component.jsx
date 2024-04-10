@@ -5,11 +5,13 @@ import {CartDropDownContainer, CartItems, Button, EmptyMessage} from './cart-dro
 import {CartContext} from "../../contexts/cart.context";
 import CartItem from "../cart-item/cart-item.component";
 import {useNavigate} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {selectCartItems} from "../../store/cart/cart.selector";
 
 
 const CartDropdown = () => {
     const navigation =  useNavigate()
-    const {cartItems} = useContext(CartContext);
+    const cartItems = useSelector(selectCartItems);
     return (
         <CartDropDownContainer>
             {
