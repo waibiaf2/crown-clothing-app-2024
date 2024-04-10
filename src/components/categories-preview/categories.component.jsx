@@ -8,11 +8,12 @@ import {CategoryPreviewContainer, Preview, Title} from "./categories.styles";
 const CategoriesComponent = ({title, products}) => {
     return (
         <CategoryPreviewContainer>
-           <Title>
-               <Link to={`/shop/${title.toLowerCase()}`}>
-                   {title.toUpperCase()}
-               </Link>
-           </Title>
+            <Link to={`/shop/${title.toLowerCase()}`}>
+                <Title>
+                    {title.toUpperCase()}
+                </Title>
+            </Link>
+
             <Preview>
                 {
                     products.filter((_,idx) => idx < 4)
