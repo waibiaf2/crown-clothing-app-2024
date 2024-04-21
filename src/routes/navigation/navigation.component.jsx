@@ -16,6 +16,8 @@ import {selectCurrentUser} from "../../store/user/user.selector";
 const Navigation = () => {
     const currentUser = useSelector(selectCurrentUser);
     const isCartOpen = useSelector(selectCartIsOpen);
+
+    const signOut = () => signOutUser()
     return (
         <Fragment>
             <NavigationContainer>
@@ -28,7 +30,7 @@ const Navigation = () => {
                     </NavLink>
                     {
                         currentUser ?
-                            (<NavLink as='span' to='' onClick={signOutUser}>SIGN OUT</NavLink>) :
+                            (<NavLink as='span' to='' onClick={signOut}>SIGN OUT</NavLink>) :
                             (<NavLink to='/auth'>SIGN IN</NavLink>)
                     }
                     <CartIcon/>
