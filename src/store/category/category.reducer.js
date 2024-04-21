@@ -1,4 +1,4 @@
-import {CATEGORY_TYPES} from "./category.types";
+import {createSlice} from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
     categories: [],
@@ -6,6 +6,33 @@ const INITIAL_STATE = {
     error: null
 }
 
+export const categorySlice = createSlice({
+    name: "categories",
+    initialState: INITIAL_STATE,
+    reducers: {
+        fetchCategoriesStart: (state, action) => {
+            state.isLoading = true;
+        },
+        fetchCategories: (state, action) => {
+            state.isLoading = false;
+            state.categories = action.payload;
+        },
+        fetchCategoriesFailed: (state, action) => {
+            state.isLoading = false;
+            state.error = action.payload;
+        }
+    }
+});
+
+export const {
+    fetchCategories,
+    fetchCategoriesStart,
+    fetchCategoriesFailed
+} = categorySlice.actions;
+
+export const categoryReducer = categorySlice.reducer;
+
+/*
 export const categoryReducer = (state = INITIAL_STATE, action = {}) => {
     const {type, payload} = action;
 
@@ -24,4 +51,4 @@ export const categoryReducer = (state = INITIAL_STATE, action = {}) => {
             return state;
     }
 
-};
+};*/

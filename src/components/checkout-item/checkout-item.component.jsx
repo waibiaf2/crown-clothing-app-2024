@@ -12,7 +12,7 @@ import {
 } from "./checkout-item.styles";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCartItems} from "../../store/cart/cart.selector";
-import {addItemToCart, clearItemFromCart, removeItemFromCart} from "../../store/cart/cart.action";
+import {addItemToCart, clearItemFromCart, removeItemFromCart} from "../../store/cart/cart.reducer";
 
 const CheckoutItemComponent = ({cartItem}) => {
     const {name, price, quantity,imageUrl} =cartItem;
@@ -20,15 +20,15 @@ const CheckoutItemComponent = ({cartItem}) => {
     const cartItems = useSelector(selectCartItems);
 
     const addItemToCartHandler = () => {
-        dispatch(addItemToCart(cartItems,cartItem));
+        dispatch(addItemToCart(cartItem));
     }
 
     const removeItemFromCartHandler = () => {
-        dispatch(removeItemFromCart(cartItems,cartItem))
+        dispatch(removeItemFromCart(cartItem))
     };
 
     const clearItemFromCartHandler = () =>{
-        dispatch(clearItemFromCart(cartItems,cartItem));
+        dispatch(clearItemFromCart(cartItem));
     }
 
     return (
