@@ -1,19 +1,30 @@
 import {Route, Routes} from "react-router-dom";
-
+import {useEffect} from "react";
+import {useDispatch} from "react-redux";
 import './shop.styles.scss';
+
+import {fetchCategories} from "../../store/category/category.reducer";
 
 import CategoriesPreviewComponent from "../categories-preview/categories-preview.component";
 
-import {useEffect} from "react";
-import {useDispatch} from "react-redux";
-import {fetchCategoriesStart} from "../../store/category/category.action";
 import CategoryComponent from "../category/category.component";
+import {getCategoriesAndDocuments} from "../../utils/firebase/firebase.utils";
+import {fetchCategoriesFailed} from "../../store/category/category.action";
 
 const Shop = () => {
     const dispatch = useDispatch();
 
     useEffect(()=> {
-        dispatch(fetchCategoriesStart());
+        // dispatch(fetchCategoriesStart());
+        try {
+            const getCategories = async () => {
+                const categoriesArray = await getCategoriesAndDocuments();
+                dispatch(fetchCategories(categoriesArray));
+            }
+            getCategories();
+        }catch (e) {
+            dispatch(fetchCategoriesFailed(e))
+        }
     },[]);
 
     return (
