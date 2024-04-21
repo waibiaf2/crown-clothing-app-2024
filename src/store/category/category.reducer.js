@@ -1,4 +1,3 @@
-import {CATEGORY_TYPES} from "./category.types";
 import {createSlice} from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
@@ -17,11 +16,19 @@ export const categorySlice = createSlice({
         fetchCategories: (state, action) => {
             state.isLoading = false;
             state.categories = action.payload;
+        },
+        fetchCategoriesFailed: (state, action) => {
+            state.isLoading = false;
+            state.error = action.payload;
         }
     }
 });
 
-export const {fetchCategories, fetchCategoriesStart} = categorySlice.actions;
+export const {
+    fetchCategories,
+    fetchCategoriesStart,
+    fetchCategoriesFailed
+} = categorySlice.actions;
 
 export const categoryReducer = categorySlice.reducer;
 

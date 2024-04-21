@@ -3,13 +3,12 @@ import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import './shop.styles.scss';
 
-import {fetchCategories} from "../../store/category/category.reducer";
+import {fetchCategories, fetchCategoriesFailed} from "../../store/category/category.reducer";
 
 import CategoriesPreviewComponent from "../categories-preview/categories-preview.component";
 
 import CategoryComponent from "../category/category.component";
 import {getCategoriesAndDocuments} from "../../utils/firebase/firebase.utils";
-import {fetchCategoriesFailed} from "../../store/category/category.action";
 
 const Shop = () => {
     const dispatch = useDispatch();
