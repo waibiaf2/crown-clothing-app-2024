@@ -3,7 +3,7 @@ import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import './shop.styles.scss';
 
-import {fetchCategories, fetchCategoriesFailed} from "../../store/category/category.reducer";
+import {fetchCategories, fetchCategoriesFailed, fetchCategoriesStart} from "../../store/category/category.slice";
 
 import CategoriesPreviewComponent from "../categories-preview/categories-preview.component";
 
@@ -15,6 +15,7 @@ const Shop = () => {
 
     useEffect(()=> {
         // dispatch(fetchCategoriesStart());
+        dispatch(fetchCategoriesStart());
         try {
             const getCategories = async () => {
                 const categoriesArray = await getCategoriesAndDocuments();
@@ -22,7 +23,7 @@ const Shop = () => {
             }
             getCategories();
         }catch (e) {
-            dispatch(fetchCategoriesFailed(e))
+            dispatch(fetchCategoriesFailed(e));
         }
     },[]);
 

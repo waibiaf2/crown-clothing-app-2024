@@ -9,7 +9,7 @@ import {useEffect} from "react";
 import {createUserDocumentFromAuth, onAuthStateChangedListener} from "./utils/firebase/firebase.utils";
 // import {setCurrentUser} from "./store/user/user.action";
 import {useDispatch} from "react-redux";
-import {setCurrentUser} from "./store/user/user.reducer";
+import {setCurrentUser} from "./store/user/user.slice";
 
 const App = () => {
     const dispatch = useDispatch();

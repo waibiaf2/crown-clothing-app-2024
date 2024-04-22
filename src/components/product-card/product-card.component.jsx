@@ -4,7 +4,7 @@ import React from 'react';
 
 import Button, {BUTTON_TYPE_CLASSES} from "../button/button.component";
 import {useDispatch} from "react-redux";
-import {addItemToCart} from "../../store/cart/cart.reducer";
+import {addItemToCart} from "../../store/cart/cart.slice";
 
 const ProductCard = ({product}) => {
     const {name, price, imageUrl} = product;

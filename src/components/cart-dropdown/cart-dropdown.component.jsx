@@ -1,8 +1,6 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
-import {CartDropDownContainer, CartItems, Button, EmptyMessage} from './cart-dropdown.styles';
-
-import {CartContext} from "../../contexts/cart.context";
+import {Button, CartDropDownContainer, CartItems, EmptyMessage} from './cart-dropdown.styles';
 import CartItem from "../cart-item/cart-item.component";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";

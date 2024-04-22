@@ -1,5 +1,4 @@
-import React, {useContext} from 'react';
-import {CartContext} from "../../contexts/cart.context";
+import React from 'react';
 import {
     Arrow,
     CheckoutItemContainer,
@@ -12,12 +11,11 @@ import {
 } from "./checkout-item.styles";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCartItems} from "../../store/cart/cart.selector";
-import {addItemToCart, clearItemFromCart, removeItemFromCart} from "../../store/cart/cart.reducer";
+import {addItemToCart, clearItemFromCart, removeItemFromCart} from "../../store/cart/cart.slice";
 
 const CheckoutItemComponent = ({cartItem}) => {
     const {name, price, quantity,imageUrl} =cartItem;
     const dispatch = useDispatch();
-    const cartItems = useSelector(selectCartItems);
 
     const addItemToCartHandler = () => {
         dispatch(addItemToCart(cartItem));
