@@ -17,17 +17,3 @@ export const userSlice = createSlice({
 export const {setCurrentUser} = userSlice.actions;
 
 export const userReducer = userSlice.reducer;
-
-/*
-export const userSlice = (state=INITIAL_STATE, action) => {
-    const {type, payload} = action;
-    switch (type) {
-        case USER_ACTION_TYPES.SET_CURRENT_USER:
-            return {
-                ...state,
-                currentUser: payload
-            }
-        default:
-            return state
-    }
-}*/
