@@ -39,17 +39,6 @@ const PaymentFormComponent = () => {
 
         console.log(client_secret);
 
-        /*    const paymentResult = await stripe.confirmCardPayment(
-                client_secret,
-                {
-                    payment_method: {
-                        card: elements.getElement(CardElement),
-                        billing_details: {
-                            name: currentUser ? currentUser.displayName : 'Guest',
-                        }
-                    }
-            );*/
-
         const paymentResult = await stripe.confirmCardPayment(
             client_secret,
             {
