@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {CardElement, PaymentElement, useElements, useStripe} from "@stripe/react-stripe-js";
+import {CardElement, useElements, useStripe} from "@stripe/react-stripe-js";
 import {FormContainer, PaymentButton, PaymentFormContainer} from "./payment-form.styles";
 import {BUTTON_TYPE_CLASSES} from "../button/button.component";
 import {useSelector} from "react-redux";
@@ -34,23 +34,35 @@ const PaymentFormComponent = () => {
         console.log(response);
 
         const {
-           paymentIntent: {client_secret}
-        } = response;
+            client_secret
+        } = response.paymentIntent;
 
+        console.log(client_secret);
 
-        // const client_secret = response.paymentIntent.client_secret;
+        /*    const paymentResult = await stripe.confirmCardPayment(
+                client_secret,
+                {
+                    payment_method: {
+                        card: elements.getElement(CardElement),
+                        billing_details: {
+                            name: currentUser ? currentUser.displayName : 'Guest',
+                        }
+                    }
+            );*/
 
-        const paymentResult = await stripe.confirmCardPayment({
+        const paymentResult = await stripe.confirmCardPayment(
             client_secret,
-            confirmParams: {
-                card: elements.getElement(CardElement),
-                billing_details: {
-                    name: currentUser ? currentUser.displayName : 'Guest',
-                },
-            }
-        })
+            {
+                payment_method: {
+                    card: elements.getElement(CardElement),
+                    billing_details: {
+                        name: currentUser ? currentUser.displayName : "Guest",
+                    }
+                }
+            })
 
-        // console.log(paymentResult);
+
+        console.log(paymentResult);
 
         setPaymentIsProcessing(false);
 
