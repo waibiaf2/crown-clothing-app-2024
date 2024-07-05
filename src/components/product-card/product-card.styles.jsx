@@ -16,25 +16,26 @@ export const CardButton = styled(Button)`
     display: none;
 `
 
-export const  ProductCardContainer = styled.div`
+export const ProductCardContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
     height: 350px;
     align-items: center;
     position: relative;
-
     &:hover {
         cursor: pointer;
+
         ${Image} {
             opacity: 0.8;
         }
+
         ${CardButton} {
             opacity: 0.85;
             display: flex;
         }
     }
-`
+`;
 
 export const Footer = styled.footer`
     width: 100%;
@@ -47,52 +48,8 @@ export const Footer = styled.footer`
 export const Name = styled.span`
     width: 90%;
     margin-bottom: 15px;
-`
+`;
 
 export const Price = styled.span`
-     width: 10%;
-`
-
-
-
-
-
-
-
-/*
-.product-card-container {
-
-
-    img {
-
-    }
-
-    button {
-
-    }
-
-     {
-        img {
-            opacity: 0.8;
-        }
-
-        button {
-            opacity: 0.85;
-            display: flex;
-        }
-    }
-
-    .footer {
-
-
-        .name {
-            width: 90%;
-            margin-bottom: 15px;
-        }
-
-        .price {
-            width: 10%;
-        }
-    }
-}
-*/
+    width: 10%;
+`;
