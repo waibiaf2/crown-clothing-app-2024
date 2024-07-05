@@ -1,4 +1,11 @@
 import React from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {
+    addItemToCart,
+    clearItemFromCart,
+    removeItemFromCart
+} from "../../store/cart/cart.slice";
+
 import {
     Arrow,
     CheckoutItemContainer,
@@ -9,12 +16,10 @@ import {
     RemoveButton,
     Value
 } from "./checkout-item.styles";
-import {useDispatch, useSelector} from "react-redux";
-import {selectCartItems} from "../../store/cart/cart.selector";
-import {addItemToCart, clearItemFromCart, removeItemFromCart} from "../../store/cart/cart.slice";
+
 
 const CheckoutItemComponent = ({cartItem}) => {
-    const {name, price, quantity,imageUrl} =cartItem;
+    const {name, price, quantity, imageUrl} = cartItem;
     const dispatch = useDispatch();
 
     const addItemToCartHandler = () => {

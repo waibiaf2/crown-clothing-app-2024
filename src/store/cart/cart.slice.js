@@ -19,7 +19,7 @@ const addCartItem = (cartItems, productToAdd) => {
         );
     }
 
-    //If it doesn't just add it to the cart items array
+    //If it doesn't exist just add it to the cart items array
     return [...cartItems, {...productToAdd, quantity: 1}]
 }
 
@@ -27,7 +27,7 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
     //check if productToAdd exists
     const existingCartItem = cartItems.find(cartItem => cartItem.id === cartItemToRemove.id);
 
-    //If exists update its quantity
+    //If there is only one item remaining for the cart items ie  quantity = 1
     if (existingCartItem.quantity === 1) {
         return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id);
     }

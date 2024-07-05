@@ -1,11 +1,15 @@
-import './checkout.styles';
-
 import React from 'react';
-import CheckoutItemComponent from "../../components/checkout-item/checkout-item.component";
-import {CheckoutBlock, CheckoutContainer, CheckoutHeader, Total} from "./checkout.styles";
 import {useSelector} from "react-redux";
 import {selectCartItems, selectCartTotal} from "../../store/cart/cart.selector";
+
 import PaymentFormComponent from "../../components/payment-form/payment-form.component";
+import CheckoutItemComponent from "../../components/checkout-item/checkout-item.component";
+import {
+    CheckoutBlock,
+    CheckoutContainer,
+    CheckoutHeader,
+    Total
+} from "./checkout.styles";
 
 const CheckoutComponent = () => {
     const options = {

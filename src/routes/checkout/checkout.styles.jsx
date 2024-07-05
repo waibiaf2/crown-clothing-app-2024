@@ -30,28 +30,3 @@ export const Total = styled.div`
     margin-left: auto;
     font-size: 36px;
 `;
-
-
-/*
-.checkout-container {
-
-
-    .checkout-header {
-
-
-        .header-block {
-
-        }
-    }
-
-    .quantity {
-        margin-left: 20px;
-    }
-
-    .total {
-        margin-top: 30px;
-        margin-left: auto;
-        font-size: 36px;
-    }
-}
-*/
